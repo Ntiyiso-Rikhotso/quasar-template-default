@@ -21,6 +21,19 @@ const proxyMiddleware = require('http-proxy-middleware')
 
 const proxyTable = config.dev.proxyTable
 
+
+webpack(clientConfig, function (err, stats) {
+  if (err) throw err
+
+  process.stdout.write(stats.toString({
+    colors: true,
+    modules: false,
+    children: false,
+    chunks: false,
+    chunkModules: false
+  }) + '\n')
+})
+
 const readFile = (fs, file) => {
   try {
     return fs.readFileSync(path.join(clientConfig.output.path, file), 'utf-8')

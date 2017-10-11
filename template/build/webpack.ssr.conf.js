@@ -34,12 +34,12 @@ module.exports = Object.assign({}, baseConfig, {
   // https://github.com/liady/webpack-node-externals
   // Externalize app dependencies. This makes the server build much faster
   // and generates a smaller bundle file.
-  externals: nodeExternals({
-    // do not externalize dependencies that need to be processed by webpack.
-    // you can add more file types here e.g. raw *.vue files
-    // you should also whitelist deps that modifies `global` (e.g. polyfills)
-    whitelist: /(\.css$|\.less$|\.sass$|\.scss$|\.styl$|\.stylus$|\.(png|jpe?g|gif|svg)(\?.*)?$|\.(woff2?|eot|ttf|otf)(\?.*)?$)/
-  }),
+  // externals: nodeExternals({
+  //   // do not externalize dependencies that need to be processed by webpack.
+  //   // you can add more file types here e.g. raw *.vue files
+  //   // you should also whitelist deps that modifies `global` (e.g. polyfills)
+  //   whitelist: /(\.css$|\.less$|\.sass$|\.scss$|\.styl$|\.stylus$|\.(png|jpe?g|gif|svg)(\?.*)?$|\.(woff2?|eot|ttf|otf)(\?.*)?$)/
+  // }),
   module: {
     rules: cssUtils.styleRules({
       sourceMap: false,

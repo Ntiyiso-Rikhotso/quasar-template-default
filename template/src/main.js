@@ -11,12 +11,18 @@ require(`quasar/dist/quasar.${__THEME}.css`)
 // require(`quasar/dist/quasar.ie.${__THEME}.css`)
 
 import Vue from 'vue'
-import Quasar from 'quasar'
+import Quasar, * as Everything from 'quasar'
 import router from './router'
 import './asyncData'
 
 Vue.config.productionTip = false
-Vue.use(Quasar) // Install Quasar Framework
+
+Vue.use(Quasar, {
+  components: Everything,
+  directives: Everything
+})
+
+// Vue.use(Quasar) // Install Quasar Framework
 
 if (__THEME === 'mat') {
   require('quasar-extras/roboto-font/roboto-font.css')
@@ -25,6 +31,7 @@ import 'quasar-extras/material-icons/material-icons.css'
 // import 'quasar-extras/ionicons/ionicons.css'
 // import 'quasar-extras/fontawesome/fontawesome.css'
 // import 'quasar-extras/animate/animate.css'
+import 'quasar-extras/animate/animate-list.js'
 
 const app = new Vue({
   router,

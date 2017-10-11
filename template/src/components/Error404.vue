@@ -1,10 +1,10 @@
 <template>
   <div class="error-page window-height window-width bg-light column items-center no-wrap">
-    <div class="error-code bg-primary flex items-center justify-center">
+    <div class="error-code bg-primary flex flex-center">
       404
     </div>
     <div>
-      <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
+      <div class="error-card shadow-4 bg-white column flex-center no-wrap">
         <q-icon name="error_outline" color="grey-5" />
         <p class="caption text-center">Oops. Nothing here...</p>
         <p class="text-center group">
@@ -14,17 +14,15 @@
             push
             @click="goBack"
             icon="keyboard_arrow_left"
-          >
-            Go back
-          </q-btn>
+            label="Go back"
+          />
           <q-btn
             color="primary"
             push
             @click="$router.replace('/')"
             icon-right="home"
-          >
-            Go home
-          </q-btn>
+            label="Go home"
+          />
         </p>
       </div>
     </div>
@@ -32,16 +30,10 @@
 </template>
 
 <script>
-import { QBtn, QIcon } from 'quasar'
-
 export default {
-  components: {
-    QBtn,
-    QIcon
-  },
   data () {
     return {
-      canGoBack: typeof window !== 'undefined' && Array.isArray(window.history) && window.history.length > 1
+      canGoBack: !this.$isServer && window.history.length > 1
     }
   },
   methods: {
