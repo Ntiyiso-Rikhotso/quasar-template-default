@@ -45,7 +45,7 @@ pages.filter(page => page.indexOf('test-layout') === -1 || page.indexOf('web-tes
   routes.push(component(page))
 })
 
-routes.push({path: '*', component: load('error404')})
+routes.push({path: '*', component: load('Error404')})
 
 export default new VueRouter({
   mode: 'history',
